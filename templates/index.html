@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Wants to Be a Millionaire</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">💰 Who Wants to Be a Millionaire 💰</h1>
+            <p class="subtitle">Test your knowledge and win big prizes!</p>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome-card">
+                <h2>Welcome to the Game</h2>
+                <p>Answer 13 questions correctly to win up to <strong>$1,000,000</strong>!</p>
+                
+                <div class="info-section">
+                    <h3>How to Play</h3>
+                    <ul>
+                        <li>You will be asked 13 questions of increasing difficulty</li>
+                        <li>Each correct answer takes you closer to the grand prize</li>
+                        <li>Three safe spots guarantee you won't lose everything: $1,000, $32,000, and $1,000,000</li>
+                        <li>Use your lifelines wisely to improve your chances</li>
+                    </ul>
+                </div>
+
+                <div class="lifelines-info">
+                    <h3>Your Lifelines</h3>
+                    <div class="lifeline-item">
+                        <span class="lifeline-icon">50:50</span>
+                        <p>Remove 2 wrong answers, leaving you with 2 choices</p>
+                    </div>
+                    <div class="lifeline-item">
+                        <span class="lifeline-icon">Ask the Audience</span>
+                        <p>See how the audience votes on each answer</p>
+                    </div>
+                    <div class="lifeline-item">
+                        <span class="lifeline-icon">Phone a Friend</span>
+                        <p>Call a friend who might know the answer</p>
+                    </div>
+                </div>
+
+                <form id="playerForm" class="player-form">
+                    <label for="playerName">Enter Your Name:</label>
+                    <input 
+                        type="text" 
+                        id="playerName" 
+                        name="playerName" 
+                        placeholder="Your name" 
+                        required
+                        maxlength="100"
+                    >
+                    <button type="submit" class="btn btn-primary btn-large">Start Game</button>
+                </form>
+            </div>
+
+            <div class="stats-section">
+                <h3>Game Statistics</h3>
+                <div id="statsContainer" class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Games</span>
+                        <span class="stat-value">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Games Won</span>
+                        <span class="stat-value">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Unique Players</span>
+                        <span class="stat-value">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Max Prize</span>
+                        <span class="stat-value">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <a href="/leaderboard" class="btn btn-secondary">View Leaderboard</a>
+                <a href="/api/docs" class="btn btn-secondary">API Docs</a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Who Wants to Be a Millionaire. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
