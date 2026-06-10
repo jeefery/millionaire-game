@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Who Wants to Be a Millionaire</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🏆 Leaderboard 🏆</h1>
+            <p class="subtitle">Top Players of All Time</p>
+        </header>
+
+        <main class="main-content">
+            <div class="leaderboard-section">
+                <div class="leaderboard-controls">
+                    <label for="limitSelect">Show top:</label>
+                    <select id="limitSelect" class="select-limit">
+                        <option value="10" selected>10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <button id="btnRefresh" class="btn btn-secondary">Refresh</button>
+                </div>
+
+                <div id="loadingSpinner" class="spinner">
+                    <p>Loading leaderboard...</p>
+                </div>
+
+                <div id="leaderboardContainer" class="leaderboard-container hidden">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th class="rank">Rank</th>
+                                <th class="player-name">Player Name</th>
+                                <th class="prize">Prize Won</th>
+                                <th class="questions">Questions</th>
+                                <th class="date">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="emptyState" class="empty-state hidden">
+                    <p>No players on the leaderboard yet. Be the first to play!</p>
+                </div>
+
+                <div id="errorState" class="error-state hidden">
+                    <p id="errorMessage"></p>
+                    <button id="btnRetry" class="btn btn-secondary">Retry</button>
+                </div>
+            </div>
+
+            <div class="leaderboard-stats">
+                <h3>Leaderboard Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Highest Prize</span>
+                        <span class="stat-value" id="highestPrize">-</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Average Prize</span>
+                        <span class="stat-value" id="averagePrize">-</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Average Questions</span>
+                        <span class="stat-value" id="averageQuestions">-</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Total Winners</span>
+                        <span class="stat-value" id="totalWinners">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <a href="/" class="btn btn-primary">Play Game</a>
+                <a href="/api/docs" class="btn btn-secondary">API Docs</a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Who Wants to Be a Millionaire. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/leaderboard.js') }}"></script>
+</body>
+</html>
